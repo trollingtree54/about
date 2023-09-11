@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>About Me</title>
+</head>
+<body>
+    <header>
+        <h1 class="about-me-heading">About Me</h1>
+    </header>
+    <div class="navbar">
+        <a href="#about-me">About Me</a>
+        <a href="#hobbies">Hobbies</a>
+        <a href="#facts">Facts About Me</a>
+        <a href="#music">Music</a>
+    </div>
+    <div class="container">
+        <section id="about-me">
+            <h2>About Me</h2>
+            <p>My name's Ashton, I'm 17 and I was born in Cleveland, Ohio. I've always
+                been interested in computers which is why I want to become a software
+                engineer. Last year I focused on HTML, CSS, and Javascript and this year
+                I'm looking forward to learning different languages and skills.
+            </p>
+        </section>
+
+        <section id="hobbies">
+            <h2>Hobbies</h2>
+            <p> I spend a lot of my time at work, but in my free time
+                I enjoy watching different sports like football and basketball.
+                My Favorite teams are the Raiders, Cavaliers, and Ohio State Buckeyes.
+                I also enjoy going over to my friends' houses and playing games like
+                Rainbow Six Siege.
+            </p>
+        </section>
+
+        <section id="facts">
+            <h2>Facts About Me</h2>
+            <ul>
+                <li><h3>My Homeschool is Cloverleaf</h3></li>
+                <img src="ezgif.com-webp-to-png.png" alt="cloverleaf">
+                <li><h3>I have a dog and a cat</h3></li>
+                <div class="image-container">
+                    <img src="IMG_0130 (2).jpg" alt="Dog Image">
+                    <img src="IMG_0644.PNG" alt="Cat Image">
+                </div>
+            </ul>
+        </section>
+
+        <section id="music">
+            <h2>Music</h2>
+            <div class="music-img-container">
+                <img src="motm 3.jpg">
+                <img src="graduation.jpg">
+                <img src="current.jpg">
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        // Get the navbar element by its id
+        const navbar = document.getElementById('navbar');
+
+        // Get the initial offset position of the navbar
+        const navbarOffset = navbar.offsetTop;
+
+        // Function to handle the sticky behavior
+        function handleStickyNavbar() {
+        if (window.pageYOffset >= navbarOffset) {
+            navbar.classList.add('sticky');
+        } else {
+            navbar.classList.remove('sticky');
+        }
+        }
+
+        // Listen for the scroll event and call the function
+        window.addEventListener('scroll', handleStickyNavbar);
+
+    </script>
+</body>
+</html>
